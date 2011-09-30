@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+
+<div id="homepage-main">
+  <div id="eplay-header" style="height: 50px">
+    <img src="/public/images/eplay.png" alt="ePlay Logo" />
+    <ul>
+      <li><a href="@{Application.index()}">Home</a></li>
+      <li><a href="@{Application.createAuctionItem()}">Create Auction</a></li>
+      <li><a href="">Help</a></li>
+			#{if session.user != null}
+				<li><a href="@{Authenticate.logout()}">${session.user}: Logout</a></li>
+			#{/if}
+			#{else}
+				<li><a href="@{Authenticate.login()}">Login</a></li>
+			#{/else}
+    </ul>
+  </div>
+  *{Auction Search div}*
+  <div id="searchdiv">
+    <form action="@{Application.search()}" method="GET">
+      <input type="text" id="search" name="search" value="${search}" />
+      <input type="submit" id="submit" name="submit" value="Search" />
+    </form>
+  </div>
+
+  #{doLayout /}
+</div>

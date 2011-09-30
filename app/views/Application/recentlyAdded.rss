@@ -1,0 +1,27 @@
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+	<channel>
+		<title>ePlay | Recently Added</title>
+		<link>@@{Application.index()}</link>
+		<description>Recently added </description>
+		<language>en-gb</language>
+		<lastBuildDate>
+			${new Date().format('EEE, d MMM yyyy HH:mm:ss Z')}
+		</lastBuildDate>
+		<copyright></copyright>
+		<docs>@@{Application.index()}</docs>
+		<ttl>15</ttl>
+		#{list items:items, as:'item'}
+		<item>
+			<title>${item.title}</title>
+			<description>${item.description.dotChop(50)}</description>
+			<link>@@{Application.show(item.id)}</link>
+			<guid isPermaLink="false">@@{Application.show(item.id)}</guid>
+			<pubDate>${item.startDate.format('EEE, d MMM yyyy HH:mm:ss Z')}</pubDate>
+			<category>All</category>
+			#{if item.photo.exists()}
+			<media:thumbnail height="30" width="30"	url="@@{Application.showImage(item.id)}" />
+			#{/if}
+		</item>
+		#{/list}
+	</channel>
+</rss>

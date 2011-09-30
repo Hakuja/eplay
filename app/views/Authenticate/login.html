@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'ePlay Auctions -- Login' /}
+#{set 'moreStyles'}
+<link rel="stylesheet" href="@{'/public/stylesheets/style.css'}" />
+#{/set}
+
+<div id="content">
+	<h1 id="login">Login</h1>
+	<p>
+		To login to ePlay, complete the form below and click Login!
+	</p>
+	<p>
+		If you have not registered yet, <a href="@{Authenticate.register()}">click here to sign up now</a>.
+	</p>
+	
+	<div id="loginForm">
+		<form action="@{Authenticate.doLogin()}" method="POST" accept-charset="utf-8">
+			<p class="field">
+				<span class="error">#{error 'username' /}</span>
+				<label for="username">Username</label><input type="text" name="username" value="${username}" id="username" />
+				
+			</p>
+			
+			<p class="field">
+				<span class="error">#{error 'password' /}</span>
+				<label for="password">Password</label><input type="password" name="password" value="" id="password" />
+				
+			</p>
+
+			<p><input type="submit" name="login" value="Login" /></p>
+		</form>
+	</div>
+</div>

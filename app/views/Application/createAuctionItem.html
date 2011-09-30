@@ -1,0 +1,60 @@
+#{extends 'main.html' /}
+#{set title:'ePlay Auctions -- Create a new Item Listing' /}
+#{set 'moreStyles'}
+<link rel="stylesheet" href="@{'/public/stylesheets/style.css'}" />
+#{/set}
+
+<div id="content">
+  <h1>New Item Listing</h1>
+
+  <p>
+    To create a new listing on ePlay, just complete the form below
+    and click the Create Listing button when you are done!
+  </p>
+
+  <div id="createItemForm">
+    <form action="@{Application.doCreateItem}" method="post" enctype="multipart/form-data">
+      <p class="field">
+				<span class="error">#{error 'item.title' /}</span>
+        <label>Title</label>
+        <input type="text" name="item.title" value="${item.title}" />
+      </p>
+      <p class="field">
+				<span class="error">#{error 'item.days' /}</span>
+        <label>Auction Length (days)</label>
+        <input type="text" name="item.days" value="${item.days}" />
+      </p>
+      <p class="field">
+				<span class="error">#{error 'item.startBid' /}</span>
+        <label>Start Bid</label>
+        <input type="text" name="item.startBid" value="${item.startBid ?: 0.0}" />
+      </p>
+      <p class="field">
+        <label>Show Buy Now Price?</label>
+        <input type="checkbox" name="item.buyNowEnabled" #{if item.buyNowEnabled}checked="checked"#{/if} />
+      </p>
+      <p class="field">
+				<span class="error">#{error 'item.buyNowPrice' /}</span>
+        <label>Buy Now Price</label>
+        <input type="text" name="item.buyNowPrice" value="${item.buyNowPrice ?: 0.0}" />
+      </p>
+      <p class="field">
+				<span class="error">#{error 'item.deliveryCost' /}</span>
+        <label>Delivery Cost</label>
+        <input type="text" name="item.deliveryCost" value="${item.deliveryCost ?: 0.0}" />
+      </p>
+      <p class="field">
+				<span class="error">#{error 'item.description' /}</span>
+        <label>Item Description</label>
+        <textarea name="item.description" rows="5" cols="25">${item.description}</textarea>
+      </p>
+			<p>
+				<span class="error">#{error 'item.photoFile' /}</span>
+				<label for="photoFile">Photo</label>
+				<input type="file" name="item.photoFile" />
+			</p>
+
+      <input type="submit" name="create" value="Create Listing" />
+    </form>
+  </div>
+</div>

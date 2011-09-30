@@ -1,0 +1,54 @@
+#{extends 'main.html' /}
+#{set title:'ePlay Auctions -- Register' /}
+#{set 'moreStyles'}
+<link rel="stylesheet" href="@{'/public/stylesheets/style.css'}" />
+#{/set}
+
+<div id="content">
+	<h1 id="register_user">Register User</h1>
+	<p>
+		To register for ePlay, just complete the form below and click the
+		Register button when you are done!
+	</p>
+	
+	<div id="registerForm">
+		<form action="@{Authenticate.doRegister()}" method="post" accept-charset="utf-8">
+			<p class="field">
+				<span class="error">#{error 'user.username' /}</span>
+				<label for="userUsername">Username</label>
+				<input type="text" name="user.username" value="${user.username}" id="userUsername" />
+			</p>
+			
+			<p class="field">
+				<span class="error">#{error 'user.password' /}</span>
+				<label for="userPassword">Password</label><input type="password" name="user.password" value="" id="userPassword" />
+			</p>
+			
+			<p class="field">
+				<span class="error">#{error 'user.passwordConfirmation' /}</span>
+				<label for="userPasswordConfirmation">Password Confirmation</label>
+				<input type="password" name="user.passwordConfirmation" value="" id="userPasswordConfirmation" />
+			</p>
+			
+			<p class="field">
+				<span class="error">#{error 'user.firstname' /}</span>
+				<label for="userFirstname">Firstname</label>
+				<input type="text" name="user.firstname" value="${user.firstname}" id="userFirstname" />
+			</p>
+			
+			<p class="field">
+				<span class="error">#{error 'user.lastname' /}</span>
+				<label for="userLastname">Lastname</label>
+				<input type="text" name="user.lastname" value="${user.lastname}" id="userLastname" />
+			</p>
+			
+			<p class="field">
+				<span class="error">#{error 'user.email' /}</span>
+				<label for="userEmail">Email</label>
+				<input type="text" name="user.email" value="${user.email}" id="userEmail" />				
+			</p>
+
+			<p><input type="submit" value="Continue &rarr;"></p>
+		</form>
+	</div>
+</div>

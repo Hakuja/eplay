@@ -1,0 +1,48 @@
+*{ You can use plain selenium command using the selenium tag }*
+
+#{fixture delete:'all', load:'data.yml' /}
+
+#{selenium}
+  // Open the home page, and check that no error occured
+  open('/')
+	waitForPageToLoad(1000)
+  assertNotTitle('Application error')
+
+	// do a search
+	type('search', 'Ford')
+	clickAndWait('submit')
+	
+	// Verify that the search found a single item
+	verifyTextPresent('Found 1')
+	verifyTextNotPresent('Errors Encountered')
+	
+	// create an auction
+	open('/listing/new')
+	waitForPageToLoad(1000)
+	
+	type('item.title', 'Selenium Test')
+	type('item.days', '5')
+	type('item.startBid', '3.99')
+	type('item.deliveryCost', '1.00')
+	type('item.description', 'An introduction to the world of selenium')
+	clickAndWait('create')
+	
+	// auction ends is only on the show page, so check if we redirected okay
+	verifyTextPresent('Auction Ends:')
+	// check the data was saved okay
+	verifyTextPresent('Selenium Test')
+	
+	// now go back and search for this new item
+	open('/')
+	waitForPageToLoad(1000)
+	assertNotTitle('Application error')
+	type('search', 'Selenium')
+	clickAndWait('submit')
+	
+	// Verify that the search found a single item
+	verifyTextPresent('Found')
+	verifyTextNotPresent('Errors Encountered')
+	// as we did not select a buy now price, check is does not display
+	verifyTextNotPresent('Buy Now Price')
+
+#{/selenium}

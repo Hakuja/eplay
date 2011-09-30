@@ -1,0 +1,32 @@
+body { font: 16px Helvetica, Tahoma, sans-serif; }
+#homepage-main { width: 800px; margin: 0 auto; position: relative; }
+#eplay-header { background: #444; }
+#eplay-header ul {
+  float: right;
+  right: 2px;
+  margin: 0;
+  padding: 25px 0px 0px 0px;
+  list-style: none;
+  line-height: normal;
+}
+#eplay-header ul li { display: block; float: left; border-left: 1px solid #afd147; }
+#eplay-header ul li a {
+  display: block;
+  float: left;
+  padding: 0px 20px 0px 20px;
+  text-decoration: none;
+  text-align: center;
+  font: 24px Helvetica, Tahoma, sans-serif;
+  font-weight: bold;
+  color: #fff;
+}
+#eplay-header ul li a:hover { text-decoration: none; }
+
+#auction-lists { width: 800px; position: relative; margin: 0 auto; clear: both; }
+#popular { width: 390px; float: left; border-right: 1px solid #000; }
+#ending { width: 380px; float: left; margin-left: 10px; }
+
+#search { width: 700px; border: 2px solid #000; font: 18px Helvetica, Tahoma, sans-serif }
+
+#auction-lists h1 { border: 1px solid #000; text-align: center; }
+#auction-lists #popular h1 { margin-right: 10px; }

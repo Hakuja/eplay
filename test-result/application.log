@@ -1,0 +1,9 @@
+30 9 2011 16:24:38,112 INFO  ~ Starting /Users/tutumi/Dev/play/eplay/.
+30 9 2011 16:24:38,116 INFO  ~ Module pdf is available (/Users/tutumi/Dev/play/play-1.2.3/modules/pdf-0.7)
+30 9 2011 16:24:38,629 WARN  ~ You're running Play! in DEV mode
+30 9 2011 16:24:39,715 INFO  ~ Connected to jdbc:h2:mem:play;MODE=MYSQL;LOCK_MODE=0;DB_CLOSE_ON_EXIT=FALSE
+30 9 2011 16:24:40,295 INFO  ~ Application 'eplay' is now started !
+30 9 2011 16:24:41,503 WARN  ~ SQL Error: 90016, SQLState: 90016
+30 9 2011 16:24:41,503 ERROR ~ 列 "AUCTIONITE0_.ENDDATE" はリストによりグループ化されなければなりません
+Column "AUCTIONITE0_.ENDDATE" must be in the GROUP BY list; SQL statement:
+select count(*) as col_0_0_ from AuctionItem auctionite0_ where auctionite0_.title like ? or (auctionite0_.description like ?) and auctionite0_.endDate>? order by auctionite0_.endDate ASC limit ? [90016-149]

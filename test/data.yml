@@ -1,0 +1,62 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+User(bob):
+    username: bobmarlay
+    passwordHash: 098f6bcd4621d373cade4e832627b4f6
+    email: bob@gmail.com
+    firstname: Bob
+    lastname: Marlay
+
+User(jeff):
+    username: jeffbeck
+    passwordHash: 098f6bcd4621d373cade4e832627b4f6
+    email: jeff@gmail.com
+    firstname: Jeff
+    lastname: Beck
+
+AuctionItem(iPad):
+  title: iPad
+  startDate: 2010-07-22T21:59:43.1Z
+  endDate: 2012-07-27T21:59:43.1Z
+  deliveryCost: 4.99
+  startBid: 1
+  buyNowEnabled: FALSE
+  buyNowPrice: 0
+  description: A 32Gb Apple iPad with Wifi and 3G enabled
+  createdBy: bob
+
+AuctionItem(htc):
+  title: HTC Desire
+  startDate: 2010-07-23T21:59:43.1Z
+  endDate: 2012-07-25T21:59:43.1Z
+  deliveryCost: 15
+  startBid: 55
+  buyNowEnabled: true
+  buyNowPrice: 499.99
+  description: The brilliant HTC desire mobile phone, sim-free,
+    updated to the latest version of Android, plenty of apps. Bargain!
+  createdBy: bob
+
+AuctionItem(mac):
+  title: Mac Mini (intel)
+  startDate: 2010-07-22T21:59:43.1Z
+  endDate: 2012-07-30T21:59:43.1Z
+  deliveryCost: 25
+  startBid: 100
+  buyNowEnabled: FALSE
+  buyNowPrice: 0.0
+  description: Brand new Apple Mac Mini (Intel).With OSX Snow Leopard, 2Gb RAM.
+  createdBy: jeff
+
+AuctionItem(fordfocus):
+  title: Ford Focus
+  startDate: 2010-07-20T21:59:43.1Z
+  endDate: 2012-07-27T21:59:43.1Z
+  deliveryCost: 25
+  startBid: 2500
+  buyNowEnabled: true
+  buyNowPrice: 12000
+  description: 2 year old Ford Focus. Mint condition, no scratches,
+    low mileage. Leather interior, lots of extras!
+  createdBy: jeff

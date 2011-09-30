@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+GET			/listing/new														Application.createAuctionItem
+POST		/listing																Application.doCreateItem
+GET			/listing/{id}														Application.show
+
+GET			/search																	Application.search
+
+GET			/rss/recent															Application.recentlyAdded(format:'rss')
+GET			/recent																	Application.recentlyAdded
+
+GET			/signup																	Authenticate.register
+POST		/signup																	Authenticate.doRegister
+
+GET			/login																	Authenticate.login
+POST		/login																	Authenticate.doLogin
+GET			/logout																	Authenticate.logout
+
+GET			/mail																		Application.mail
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

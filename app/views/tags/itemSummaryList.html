@@ -1,0 +1,54 @@
+*{
+expect 2 parameters.
+ -- First parameter is the list of items _items
+ -- Second parameter is the type of summary to display _type. Can be {short, full}
+}*
+<div>
+	#{list items:_items, as:'item'}
+		#{if _type == 'short'}
+			<div style="position: relative; clear: both;">
+				<div style="width: 30px; float: left;">
+					#{if item.photo.exists()}
+						<img height="30" width="30" src="@{Application.showImage(item.id)}" alt="${item.title} image" />
+					#{/if}
+					#{else}
+						&nbsp;
+					#{/else}
+				</div>
+				<div style="width: 170px; float: left;">
+					<a href="@{Application.show(item.id)}">${item.title}</a>
+				</div>
+				<div style="width: 100px; float: left;">
+					${item.endDate.until()}
+				</div>
+				<div style="width: 80px; float: left; text-align: right; margin-bottom: 9px;">
+					${item.currentTopBid.formatCurrency('GBP').raw()}<br />
+					+ ${item.deliveryCost != 0 ? item.deliveryCost.formatCurrency('GBP').raw() : 'Free'}
+				</div>
+			</div>
+		#{/if}
+		#{else}
+			<div style="position: relative; clear: both;">
+				<div style="width: 30px; float: left;">
+					#{if item.photo.exists()}
+						<img height="30" width="30" src="@{Application.showImage(item.id)}" alt="${item.title} image" />
+					#{/if}
+					#{else}
+						&nbsp;
+					#{/else}
+				</div>
+				<div style="width: 370px; float: left;">
+					<a href="@{Application.show(item.id)}">${item.title}</a><br />
+					${item.description.dotChop(20)}
+				</div>
+				<div style="width: 100px; float: left;">
+					${item.endDate.until()}
+				</div>
+				<div style="width: 80px; float: left; text-align: right; margin-bottom: 9px;">
+					${item.currentTopBid.formatCurrency('GBP').raw()}<br />
+					+ ${item.deliveryCost != 0 ? item.deliveryCost.formatCurrency('GBP').raw() : 'Free'}
+				</div>
+			</div>			
+		#{/else}
+	#{/list}
+</div>

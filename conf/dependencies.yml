@@ -1,0 +1,8 @@
+# Application dependencies
+
+transitiveDependencies: false
+
+require:
+    - play
+    - play -> pdf 0.7
+

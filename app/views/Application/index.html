@@ -1,0 +1,22 @@
+#{extends 'header.html' /}
+#{set title:'ePlay -- Homepage' /}
+
+<div id="welcome">
+  <h1>Welcome to ePlay!</h1>
+  <p>
+    ePlay is a brand new online auction site, powered by the amazing Play!
+  </p>
+</div>
+
+*{Popular/EndingSoon Lists}*
+<div id="auction-lists">
+  <div id="popular">
+    <h1>Most Popular Items</h1>
+		#{itemSummaryList items: mostPopular, type: 'short' /}
+  </div>
+  <div id="ending">
+    <h1>Auctions Ending Soon</h1>
+		#{itemSummaryList items: endingSoon, type: 'short' /}
+  </div>
+</div>
+*{End-Popular/EndingSoon Lists}*

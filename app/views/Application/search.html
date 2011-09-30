@@ -1,0 +1,35 @@
+#{extends 'header.html' /}
+#{set title:'ePlay -- Search Results' /}
+
+<div id="search-results">
+	#{ifErrors}
+	<h1 id="errors_encounted">Errors Encountered</h1>
+		<ul>
+			#{errors}
+			<li>${error}</li>
+			#{/errors}
+		</ul>
+	#{/ifErrors}
+	#{else}
+	  <h1>Search Results</h1>
+	  #{if results}
+	  Found ${results.count} item${results.count.pluralize()} matching '${search}'.<br />
+	  Showing items ${((page - 1) * 5) + 1} to ${((page - 1) * 5) + results.items.size()}.
+	  #{if results.count > 5}
+	  <p>
+	    #{if page > 1}
+	    <a href="@{Application.search(search, page - 1)}"> &lt;&lt;&lt; Previous </a> ||
+	    #{/if}
+	    #{if page * 5 <= results.count}
+	    <a href="@{Application.search(search, page + 1)}"> Next &gt;&gt;&gt; </a>
+	    #{/if}
+	  </p>
+	  #{/if}
+		#{itemSummaryList items: results.items, type: 'full' /}
+	  #{/if}
+	  #{else}
+	  Sorry! We did not find any results matching '${search}'
+	  #{/else}
+	#{/else}
+</div>
+
